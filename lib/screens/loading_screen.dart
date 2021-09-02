@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:weather/services/location.dart';
@@ -29,7 +31,12 @@ class _LoadingScreenState extends State<LoadingScreen> {
         'https://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=ca0491db415b1bcb2c7e30233445aae6'));
     if (response.statusCode == 200) {
       String data = response.body;
-      print(data);
+
+      var city = jsonDecode(data)['name'];
+      var conddition = jsonDecode(data)['weather'][0]['main'];
+
+      print(city);
+      print(conddition);
     } else {
       print(response.statusCode);
     }
