@@ -13,12 +13,12 @@ class _CityScreenState extends State<CityScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('images/city_background.jpg'),
-            fit: BoxFit.cover,
-          ),
-        ),
+        // decoration: const BoxDecoration(
+        //   image: DecorationImage(
+        //     image: AssetImage('images/city_background.jpg'),
+        //     fit: BoxFit.cover,
+        //   ),
+        // ),
         constraints: const BoxConstraints.expand(),
         child: SafeArea(
           child: Column(
@@ -37,7 +37,7 @@ class _CityScreenState extends State<CityScreen> {
                 padding: const EdgeInsets.all(20.0),
                 child: null,
               ),
-              FlatButton(
+              TextButton(
                 onPressed: () {},
                 child: const Text(
                   'Get Weather',
