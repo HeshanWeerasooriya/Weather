@@ -43,14 +43,14 @@ class _LocationScreenState extends State<LocationScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('images/location_background.jpg'),
-            fit: BoxFit.cover,
-            colorFilter: ColorFilter.mode(
-                Colors.white.withOpacity(0.8), BlendMode.dstATop),
-          ),
-        ),
+        // decoration: BoxDecoration(
+        //   image: DecorationImage(
+        //     image: AssetImage('images/location_background.jpg'),
+        //     fit: BoxFit.cover,
+        //     colorFilter: ColorFilter.mode(
+        //         Colors.white.withOpacity(0.8), BlendMode.dstATop),
+        //   ),
+        // ),
         constraints: BoxConstraints.expand(),
         child: SafeArea(
           child: Column(
@@ -60,14 +60,18 @@ class _LocationScreenState extends State<LocationScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  FlatButton(
-                    onPressed: () {},
+                  TextButton(
+                    onPressed: () async {
+                      var weatherData = await weather.getLocationWeather();
+                      updateUI(weatherData);
+                      print('Pressed!');
+                    },
                     child: Icon(
                       Icons.near_me,
                       size: 50.0,
                     ),
                   ),
-                  FlatButton(
+                  TextButton(
                     onPressed: () {},
                     child: Icon(
                       Icons.location_city,
